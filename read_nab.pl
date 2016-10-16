@@ -44,3 +44,18 @@ while ($all_projects =~ m{
 print Dumper(\@projects);
 
 #print $all_projects;
+
+=pod
+
+=head1 SYNOPSIS
+
+read_nab.pl - lit un fichier nab.xml et affiche son contenu
+
+=head1 USAGE
+
+read_nab.pl nab.xml
+
+=head1 DESCRIPTION
+
+Lit un fichier nab.xml le nettoie et l'affiche en structure Perl simplifié.
+
