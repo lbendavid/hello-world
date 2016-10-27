@@ -44,6 +44,10 @@ while ($all_projects =~ m{
 
 # Debut d'un affichage malin
 foreach my $project_re (@projects) {
+	print "Project:\n";
+	while (my ($k, $v) = each %{$project_re}) {
+		print "\t$k: $v\n";
+	}
 	print Dumper($project_re);
 }
 
