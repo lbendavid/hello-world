@@ -24,5 +24,5 @@ A minima, passer la commande :
 
 Avec `git remote -v`, on peut vérifier que tout est bien ok.
 
-Essai d'un problème de conflit de fusion
-----------------------------------------
+Reussite de génération d'un problème de conflit de fusion
+---------------------------------------------------------
