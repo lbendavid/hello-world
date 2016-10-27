@@ -24,5 +24,11 @@ A minima, passer la commande :
 
 Avec `git remote -v`, on peut vérifier que tout est bien ok.
 
-Reussite de génération d'un problème de conflit de fusion
----------------------------------------------------------
+Faire le ménage dans ses branches mergées:
+------------------------------------------
+
+	git branch # pour les lister
+	git branch -d <nom branche> # pour les noms locaux
+	git push orgin :<nom branche> # pour supprimer dans github (origin le repo GIT)
+
+
