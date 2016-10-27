@@ -41,7 +41,10 @@ while ($all_projects =~ m{
 	}
 }
 
-print Dumper(\@projects);
+# Debut d'un affichage malin
+foreach my $project_re (@projects) {
+	print Dumper($project_re);
+}
 
 #print $all_projects;
 
