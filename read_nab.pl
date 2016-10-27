@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # From GitHub
-# Pas de change en vu à part l'ajout de ce commentaire
+#�Pas de change en vue a part l'ajout de ce commentaire
 
 use strict;
 use warnings;
