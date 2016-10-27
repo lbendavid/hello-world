@@ -48,7 +48,6 @@ foreach my $project_re (@projects) {
 	while (my ($k, $v) = each %{$project_re}) {
 		print "\t$k: $v\n";
 	}
-	print Dumper($project_re);
 }
 
 #print $all_projects;
