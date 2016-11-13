@@ -12,42 +12,56 @@ my @projects;
 local $/ = undef;
 my $slurp = <>;
 
-my ($all_projects) = ($slurp =~ m{
+my ($all_projects) = (
+    $slurp =~ m{
 	<INDEX_PROJETS>(.+)</INDEX_PROJETS>
-}xms);
-while ($all_projects =~ m{
+}xms
+);
+while (
+    $all_projects =~ m{
 <DOMAINE \s+ name="(\w+)"[^>]*>(.+?)</DOMAINE>
-}xgms) {
-	my ($domain, $domain_projects) = ($1, $2);
-	while ($domain_projects =~ m{
+}xgms
+  )
+{
+    my ($domain, $domain_projects) = ($1, $2);
+    while (
+        $domain_projects =~ m{
 		<ETAT \s+ name="(\w+)">(.+?)</ETAT>
-	}xgms) {
-		my ($state, $state_projects) = ($1, $2);
-		while ($state_projects =~ m{
+	}xgms
+      )
+    {
+        my ($state, $state_projects) = ($1, $2);
+        while (
+            $state_projects =~ m{
 		<LIGNE>(.+?)</LIGNE>
-		}xgms) {
-			my ($row) = ($1);
-			my %row;
-			foreach my $item (split m/\n/, $row) {
-				if ($item =~ m{
+		}xgms
+          )
+        {
+            my ($row) = ($1);
+            my %row;
+            foreach my $item (split m/\n/, $row) {
+                if (
+                    $item =~ m{
 					<(\w+)><!\[CDATA\[([^\]]+)
-				}xms) {
-					my ($id, $content) = ($1, $2);
-					$row{$id} = $content;
-				}
-				@row{qw(DOMAINE ETAT)} = ($domain, $state);
-			}
-			push @projects, \%row;
-		}
-	}
+				}xms
+                  )
+                {
+                    my ($id, $content) = ($1, $2);
+                    $row{$id} = $content;
+                }
+                @row{qw(DOMAINE ETAT)} = ($domain, $state);
+            }
+            push @projects, \%row;
+        }
+    }
 }
 
 # Debut d'un affichage malin
 foreach my $project_re (@projects) {
-	print "Project:\n";
-	while (my ($k, $v) = each %{$project_re}) {
-		print "\t$k: $v\n";
-	}
+    print "Project:\n";
+    while (my ($k, $v) = each %{$project_re}) {
+        print "\t$k: $v\n";
+    }
 }
 
 #print $all_projects;
